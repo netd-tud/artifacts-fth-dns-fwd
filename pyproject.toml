@@ -1,0 +1,32 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "artifacts_fth_dns_fwd"
+version = "0.0.1"
+description = "Artifacts for the pape \"\tForward to Hell? On the Potentials of Misusing Transparent DNS Forwarders in Reflective Amplification Attacks"
+authors = [
+  { name = "TU Dresden" },
+]
+
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    
+]
+requires-python = "~=3.10.0"
+
+
+[tool.ruff]
+line-length = 99
+src = ["artifacts_fth_dns_fwd"]
+include = ["pyproject.toml", "artifacts_fth_dns_fwd/**/*.py"]
+
+[tool.ruff.lint]
+extend-select = ["I"]  # Add import sorting
+
+[tool.ruff.lint.isort]
+known-first-party = ["artifacts_fth_dns_fwd"]
+force-sort-within-sections = true
+
