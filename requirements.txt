@@ -20,5 +20,5 @@ typing
 maxminddb
 geoip2
 pyasn
+geopandas
 ipaddress
-period_detection

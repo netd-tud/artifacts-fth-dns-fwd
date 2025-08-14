@@ -65,7 +65,7 @@ data: requirements
 	$(PYTHON_INTERPRETER) artifacts_fth_dns_fwd/dataset.py
 
 .PHONY: plots
-data: requirements
+plots: requirements
 	$(PYTHON_INTERPRETER) artifacts_fth_dns_fwd/plots.py
 
 #################################################################################
