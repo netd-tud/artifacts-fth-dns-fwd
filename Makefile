@@ -26,7 +26,9 @@ requirements:
 clean:
 	find . -type f -name "*.py[co]" -delete
 	find . -type d -name "__pycache__" -delete
-
+	find ./notebooks/ -type f -name "*.html" -delete
+	find ./reports/figures/ -type f -name "*.pdf" -delete
+	find ./reports/figures/ -type f -name "*.png" -delete
 
 ## Lint using ruff (use `make format` to do formatting)
 .PHONY: lint
