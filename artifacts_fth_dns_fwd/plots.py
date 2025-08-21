@@ -332,7 +332,7 @@ def main(
     plt.tight_layout()
 
     plt.gca().yaxis.set_major_formatter(FuncFormatter(y_axis_formatter))
-    figure_counter+=1
+    figure_counter+=2
     plt.savefig(f'{figure_dir}/figure_{figure_counter:0=2d}_number_tfwd_year.pdf', bbox_inches='tight')
     plt.close()
 
