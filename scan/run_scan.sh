@@ -2,7 +2,7 @@
 set -e
 SCANNER_DIR="odns-measurement-tools"
 RESULTS_MIDFIX="dataframe_complete"
-RESULTS_DIR=../../data/raw
+RESULTS_DIR=../data/raw
 
 # elevate
 [ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
