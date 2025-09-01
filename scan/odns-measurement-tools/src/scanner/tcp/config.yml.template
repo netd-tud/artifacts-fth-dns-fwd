@@ -1,0 +1,8 @@
+iface_name: <iface>
+iface_ip: <ip>
+dst_port: 53
+dns_query: <domain>
+exclude_ips_fname: exclude_ips.txt
+pkts_per_sec: 100000
+verbosity: 3
+no_of_routines: 10

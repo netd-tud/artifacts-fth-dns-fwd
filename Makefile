@@ -42,6 +42,9 @@ format:
 	ruff check --fix
 	ruff format
 
+#################################################################################
+# PROJECT RULES                                                                 #
+#################################################################################
 
 python_env:
 	$(PYTHON_INTERPRETER) -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
@@ -54,12 +57,6 @@ notebooks_html = notebooks/tables.html
 
 tables: NBCONVERT_PARAMS=--execute
 tables: $(notebooks_html)
-
-
-#################################################################################
-# PROJECT RULES                                                                 #
-#################################################################################
-
 
 ## Make dataset
 .PHONY: data
