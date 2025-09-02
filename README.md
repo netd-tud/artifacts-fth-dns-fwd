@@ -47,7 +47,7 @@ This command runs the jupyter notebook `notebooks/tables.ipynb` and creates the 
 
 ### To reproduce the DNS scanning data
 
-To run the DNS scans you need to do some set up.
+To run the DNS scans you need to do some set up, the tool is IPv4 compatible only.
 Copy and edit the template file:
 
 1. ```cp scan/odns-measurement-tools/src/scanner/udp/config.yml.template scan/odns-measurement-tools/src/scanner/udp/config.yml && vim scan/odns-measurement-tools/src/scanner/udp/config.yml```
@@ -60,6 +60,22 @@ Copy and edit the template file:
 3. ```cd scan && ./run_scan.sh udp``` (Note: This performs an Internet-wide scan for open DNS components!)
 
 ### Testing for DNSSEC and ANY query support
+1. ```cp scan/odns-measurement-tools/src/scanner/udp/config.yml.template scan/odns-measurement-tools/src/scanner/udp/config.yml && vim scan/odns-measurement-tools/src/scanner/udp/config.yml```
+
+2. Fill in the missing variables:
+
+    1. Name and IP-address of the interface the scanner will be running on.
+    2. A domain used during scan. The authoritative nameserver of this domain, must be set up to reply with the two A records: IP-address of requesting DNS client on the nameserver; an IP as control record (which is currently hardcoded to `91.216.216.216` in the postprocessing)
+3. Change the values of the following fields:
+    1. dns_query_type: ~~A~~ ANY
+    2. dnssec_enabled: ~~false~~ true
+    3. ends0_enabled: ~~false~~ true
+
+4. Get a file with IPv4 addresses for testing, one IP address per line, no header or use a network in CIDR notation to scan for.
+
+5. ```cd scan/odns-measurement-tools/src && sudo go run dns_tool.go --mode scan --protocol udp --config scanner/udp/config.yml [net-to-scan-in-CIDR|filename-of-ip-list]```
+
+6. Results are stored under ```udp_results.csv.gz```
 
 ### Rate-limit tests
 This component allows for rate limit and performance testing of DNS resolvers.
