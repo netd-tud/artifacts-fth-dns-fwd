@@ -23,6 +23,7 @@ Proc. of ACM Conference on Computer and Communications Security (CCS)
 - A domain name under your control
 - GOLANG 1.23.0
 - ZGrab2 for fingerprinting
+- libpcap
 - Optional, but highly recommended: A scan server with no upstream filters, allowing for fast Internet-wide scans.
 
 ## How to reproduce the artifacts
